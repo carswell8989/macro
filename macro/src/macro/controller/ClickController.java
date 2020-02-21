@@ -9,7 +9,7 @@ public class ClickController {
 	public void run(int [][][] coordinate) {
 		
 		try {
-			Robot robot = new Robot();
+			 Robot robot = new Robot();
 			
 			 robot.mouseMove(coordinate[0][0][0]+15, coordinate[0][0][1]);
 			 robot.delay(50);

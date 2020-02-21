@@ -2,7 +2,7 @@ package macro.controller;
 
 public class MainController {
 	
-	//이미지 탐색 및 클랙
+	//이미지 탐색 및 클릭
 	public void findAndClick(String fileName) {
 		
 		FindController findCtrl = new FindController();
