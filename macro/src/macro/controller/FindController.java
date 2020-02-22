@@ -25,7 +25,7 @@ public class FindController {
 		 result[0] = coordinate[coordinate.length-1][coordinate[0].length-1][coordinate[0][0].length -1];
 		 //y좌표
 		 result[1] = coordinate[0][0][0];
-		 //System.out.println("x, y : "+result[0]+", "+result[1]);
+		 System.out.println("타겟 이미지 서칭 좌표 : "+result[0]+", "+result[1]);
 		
 		
 		return result;

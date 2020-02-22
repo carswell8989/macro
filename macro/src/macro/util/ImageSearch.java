@@ -63,7 +63,7 @@ public class ImageSearch {
       
       public void setTargetImage(String fileName) {
     	  
-    	  System.out.println("file path >>> "+fileName);
+    	  //System.out.println("file path >>> "+fileName);
     	  
     	  try {
 			keyImage = ImageIO.read(new File(fileName));

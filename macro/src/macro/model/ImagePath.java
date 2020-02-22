@@ -29,6 +29,8 @@ public class ImagePath {
 
 	String step9 = this.path+"step9.png"; // 빵 먹고 나서.
 	
+	String step11 = this.path+"step11.png"; //하단 안내 메시지
+	
 	public String getStep1() {
 		return step1;
 	}
@@ -99,6 +101,14 @@ public class ImagePath {
 
 	public void setStep9(String step9) {
 		this.step9 = step9;
+	}
+
+	public String getStep11() {
+		return step11;
+	}
+
+	public void setStep11(String step11) {
+		this.step11 = step11;
 	}
 	
 	
