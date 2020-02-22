@@ -16,7 +16,21 @@ public class FindController {
 		return result;
 	}
 	
-	
+	//이미지의 x y 좌표 구하기.
+	public int[] findXY(int [][][] coordinate) {
+		
+		int [] result = new int[2];
+
+		 //x좌표 -> 맨 마지막 좌표
+		 result[0] = coordinate[coordinate.length-1][coordinate[0].length-1][coordinate[0][0].length -1];
+		 //y좌표
+		 result[1] = coordinate[0][0][0];
+		 //System.out.println("x, y : "+result[0]+", "+result[1]);
+		
+		
+		return result;
+		
+	}
 	
 
 }

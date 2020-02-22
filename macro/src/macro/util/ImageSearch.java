@@ -46,9 +46,13 @@ public class ImageSearch {
           keyImgHeight = keyImage.getHeight();
           
           //이미지 검색 시작
-          this.findImage();
+          boolean result = this.findImage();
     	  
+          
           return this.findImgData;
+          
+          
+         
 
       }
       
@@ -58,6 +62,8 @@ public class ImageSearch {
        */
       
       public void setTargetImage(String fileName) {
+    	  
+    	  System.out.println("file path >>> "+fileName);
     	  
     	  try {
 			keyImage = ImageIO.read(new File(fileName));
@@ -93,6 +99,7 @@ public class ImageSearch {
        * @return 로컬 그림 BufferedImage 대상
        */
       public BufferedImage getBfImageFromPath(String keyImagePath) {
+    	  System.out.println("keyImagePath : "+keyImagePath);
           BufferedImage bfImage = null;
           try {
               bfImage = ImageIO.read(new File(keyImagePath));
@@ -125,7 +132,10 @@ public class ImageSearch {
       /**
        * 동일 이미지 탐색
        */
-      public void findImage() {
+      public boolean findImage() {
+    	  
+    	  boolean isFinded = false;
+    	  
           findImgData = new int[keyImgHeight][keyImgWidth][2];
           //화면 캡처 픽셀 좀 데이터 사이를 옮겨다니기
           for(int y=0; y<scrShotImgHeight-keyImgHeight; y++) {
@@ -138,7 +148,7 @@ public class ImageSearch {
                           && (keyImageRGBData[keyImgHeight-1][keyImgWidth-1]^screenShotImageRGBData[y+keyImgHeight-1][x+keyImgWidth-1])==0
                           && (keyImageRGBData[keyImgHeight-1][0]^screenShotImageRGBData[y+keyImgHeight-1][x])==0) {
                       
-                      boolean isFinded = isMatchAll(y, x);
+                      isFinded = isMatchAll(y, x);
                       //만약 비교적 결국 완전히 같지 않으면 설명이 그림 찾을 때까지 충전 중 위치 까지 좌표 데이터 검색 결과 배열. 
                       if(isFinded) {
                           for(int h=0; h<keyImgHeight; h++) {
@@ -147,11 +157,13 @@ public class ImageSearch {
                                   findImgData[h][w][1] = x+w;
                               }
                           }
-                          return;
+                          return isFinded;
                       } // if
                   } // if
               } // for
           } // for
+          
+          return isFinded;
       }
       
       
